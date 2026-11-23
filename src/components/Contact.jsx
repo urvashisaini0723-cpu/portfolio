@@ -14,6 +14,13 @@ const ICONS = {
   location: MapPinIcon,
 };
 
+// Empty in local dev / single-host deployments so requests stay same-origin.
+// Set VITE_API_BASE_URL on Vercel when the API is hosted separately on Render.
+const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || "").replace(
+  /\/+$/,
+  "",
+);
+
 const fieldClass =
   "w-full rounded-sm border border-(--color-ink)/15 bg-white px-4 py-3 font-body text-sm text-(--color-ink) placeholder:text-(--color-ink)/40 focus:border-(--color-accent) focus:outline-none";
 
@@ -33,7 +40,7 @@ export default function Contact() {
     setFeedback("");
 
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch(`${API_BASE_URL}/api/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -49,6 +49,54 @@ function clientIp(req) {
   return req.socket?.remoteAddress || "unknown";
 }
 
+// Comma-separated list of browser origins allowed to call the API. Wildcards
+// are supported for preview deployments, e.g. "https://portfolio-*.vercel.app".
+function allowedOrigins() {
+  return (process.env.ALLOWED_ORIGINS || "http://localhost:5173,http://localhost:4173")
+    .split(",")
+    .map((origin) => origin.trim())
+    .filter(Boolean);
+}
+
+function originMatches(origin, pattern) {
+  if (pattern === "*") return true;
+  if (!pattern.includes("*")) return origin === pattern;
+
+  const escaped = pattern
+    .replace(/[.+?^${}()|[\]\\]/g, "\\$&")
+    .replaceAll("*", ".*");
+
+  return new RegExp(`^${escaped}$`).test(origin);
+}
+
+function corsHeaders(req) {
+  const origin = req.headers.origin;
+  const headers = { Vary: "Origin" };
+
+  if (!origin) return headers;
+
+  const allowed = allowedOrigins().some((pattern) =>
+    originMatches(origin, pattern),
+  );
+
+  if (!allowed) return headers;
+
+  return {
+    ...headers,
+    "Access-Control-Allow-Origin": origin,
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type, Accept",
+    "Access-Control-Max-Age": "86400",
+  };
+}
+
+function applyCors(req, res) {
+  const headers = corsHeaders(req);
+  for (const [name, value] of Object.entries(headers)) {
+    res.setHeader?.(name, value);
+  }
+}
+
 async function readRawBody(req) {
   // Vercel/Netlify may parse the body before the function runs.
   if (req.body !== undefined && req.body !== null) {
@@ -213,6 +261,8 @@ export async function processContactRequest({ body, ip = "unknown" }) {
 }
 
 export async function handleContactRequest(req, res) {
+  applyCors(req, res);
+
   if (req.method === "OPTIONS") {
     res.writeHead(204, {
       Allow: "POST, OPTIONS",

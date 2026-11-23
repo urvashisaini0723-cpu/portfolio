@@ -4,6 +4,9 @@
   "version": "1.0.0",
   "type": "module",
   "description": "Portfolio website of Urvashi Saini — aspiring software developer.",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
