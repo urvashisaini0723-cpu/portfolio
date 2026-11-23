@@ -1,0 +1,10 @@
+{
+  "name": "Urvashi Saini — Portfolio",
+  "short_name": "Urvashi Saini",
+  "description": "Portfolio of Urvashi Saini, aspiring software developer.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f4f1",
+  "theme_color": "#f7f4f1",
+  "icons": [{ "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}

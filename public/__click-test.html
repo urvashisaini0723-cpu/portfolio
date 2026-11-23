@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background: #2a1420;
+      }
+      iframe {
+        display: block;
+        width: 100vw;
+        height: 100vh;
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <iframe id="frame" src="http://localhost:5173/"></iframe>
+    <script>
+      const frame = document.getElementById("frame");
+      frame.addEventListener("load", () => {
+        const link = frame.contentDocument.querySelector('a[href="#projects"]');
+        link?.click();
+      });
+    </script>
+  </body>
+</html>
