@@ -94,8 +94,8 @@ export default function Hero() {
             variants={item}
             className="mt-6 max-w-sm font-body text-(--color-canvas)/80"
           >
-            An aspiring software developer who loves C, C++ and building things
-            for the web.
+            A digital marketing learner blending creativity with AI tools to
+            plan campaigns, create content and grow brands online.
           </motion.p>
           <motion.div variants={item} className="mt-8 flex flex-wrap gap-3">
             <a
@@ -128,7 +128,7 @@ export default function Hero() {
             <div className="relative h-full w-full overflow-hidden rounded-[2rem] rounded-t-[8rem] border-[3px] border-(--color-canvas) bg-(--color-canvas)/10 shadow-[0_22px_60px_-24px_rgba(31,20,26,0.75)] transition-all duration-500 ease-out group-hover:-translate-y-1 group-hover:border-(--color-accent-soft) group-hover:shadow-[0_30px_80px_-28px_rgba(31,20,26,0.85)]">
               {photoOk ? (
                 <img
-                  src="/img/urvashi.jpg"
+                  src="/img/urvashi.webp"
                   alt="Portrait of Urvashi Saini"
                   className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.045]"
                   onError={() => setPhotoOk(false)}
