@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   GitHubIcon,
   LinkedInIcon,
@@ -30,6 +30,29 @@ const labelClass =
 export default function Contact() {
   const [status, setStatus] = useState("idle");
   const [feedback, setFeedback] = useState("");
+
+  // Render's free web service sleeps after 15 minutes idle. Wake it while the
+  // visitor is reading the page so the first form submission doesn't wait for
+  // a cold start.
+  useEffect(() => {
+    if (!API_BASE_URL) return;
+
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 60000);
+
+    fetch(`${API_BASE_URL}/api/health`, {
+      mode: "no-cors",
+      cache: "no-store",
+      signal: controller.signal,
+    })
+      .catch(() => {})
+      .finally(() => clearTimeout(timeout));
+
+    return () => {
+      clearTimeout(timeout);
+      controller.abort();
+    };
+  }, []);
 
   async function handleSubmit(event) {
     event.preventDefault();

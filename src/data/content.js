@@ -116,6 +116,7 @@ export const PROJECTS = [
   {
     name: "Burger Rush",
     type: "Web-Based Game",
+    image: "/img/burger-rush.svg",
     url: "https://burger-rush-1.ai.studio",
     label: "burger-rush-1.ai.studio",
     desc: "An interactive browser-based game featuring engaging gameplay and a responsive user interface.",
@@ -123,6 +124,7 @@ export const PROJECTS = [
   {
     name: "Fly High Consultancy",
     type: "Website",
+    image: "/img/fly-high-consultancy.svg",
     url: "https://fly-high-consultancy.vercel.app",
     label: "fly-high-consultancy.vercel.app",
     desc: "A responsive consultancy website, designed, developed and deployed online on Vercel.",
@@ -166,4 +168,12 @@ export const CONTACT_LINKS = [
     icon: "location",
   },
 ];
+
+export const THEME = {
+  canvas: "oklch(97% 0.005 68)",
+  ink: "oklch(20% 0.015 347)",
+  accent: "oklch(60% 0.077 356)",
+  accentDeep: "oklch(30% 0.07 359)",
+  accentSoft: "oklch(92% 0.02 356)",
+};
 

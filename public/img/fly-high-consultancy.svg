@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#f7f4f1"/>
+  <rect x="60" y="80" width="280" height="140" fill="#e8b4a8" rx="8"/>
+  <rect x="80" y="100" width="60" height="20" fill="#d4a373" rx="2"/>
+  <rect x="160" y="100" width="100" height="20" fill="#d4a373" rx="2"/>
+  <rect x="280" y="100" width="40" height="20" fill="#d4a373" rx="2"/>
+  <rect x="80" y="135" width="140" height="12" fill="#d4a373" rx="2"/>
+  <rect x="80" y="155" width="200" height="12" fill="#d4a373" rx="2"/>
+  <text x="200" y="260" font-family="system-ui, sans-serif" font-size="16" fill="#4a2438" text-anchor="middle" font-weight="600">Fly High Consultancy</text>
+  <text x="200" y="285" font-family="system-ui, sans-serif" font-size="12" fill="#7a6f74" text-anchor="middle">Consultancy Website</text>
+</svg>

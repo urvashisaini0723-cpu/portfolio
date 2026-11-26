@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#f7f4f1"/>
+  <circle cx="200" cy="140" r="60" fill="#e8b4a8"/>
+  <rect x="170" y="190" width="60" height="40" fill="#d4a373" rx="4"/>
+  <circle cx="140" cy="110" r="18" fill="#d4a373"/>
+  <circle cx="260" cy="110" r="18" fill="#d4a373"/>
+  <text x="200" y="250" font-family="system-ui, sans-serif" font-size="16" fill="#4a2438" text-anchor="middle" font-weight="600">Burger Rush</text>
+  <text x="200" y="275" font-family="system-ui, sans-serif" font-size="12" fill="#7a6f74" text-anchor="middle">Web-Based Game</text>
+</svg>

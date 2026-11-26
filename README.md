@@ -6,7 +6,8 @@ Kaithal, Haryana. Built as a single-page React site with a warm, editorial
 
 ## Live site
 
-https://urvashi-portfolio.app.orvisai.com
+- Frontend: https://urvashi-portfolio-tawny.vercel.app
+- API: https://urvashi-portfolio-api.onrender.com
 
 ## Tech stack
 
@@ -140,28 +141,51 @@ endpoint is unavailable it shows a direct email link instead.
 
 ## Deployment
 
-The site needs a Node runtime for `/api/contact` because the Brevo key must
-stay server-side. Options:
+The frontend runs on **Vercel** and the contact API runs on **Render**. The
+Brevo key stays on Render and is never included in the browser bundle.
 
-- **Node host** (Render, Railway, Fly.io, VPS): `npm run build` then
-  `npm start`. Set `BREVO_API_KEY`, `CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL`
-  and `CONTACT_FROM_NAME` in the host's environment settings.
-- **Vercel**: import the repo. `api/contact.js` becomes the serverless
-  endpoint automatically. Add the same environment variables in
-  **Project → Settings → Environment Variables**.
-- **Netlify**: `netlify.toml` builds `dist` and maps `/api/contact` to
-  `netlify/functions/contact.mjs`. Add the environment variables in
-  **Site configuration → Environment variables**.
+### Vercel (frontend)
 
-Update the canonical URL, Open Graph URLs and sitemap-related files if the
-domain changes. A purely static host (no functions) cannot keep the Brevo key
-secret; use a platform with serverless functions instead.
+- Build command: `npm run build`
+- Output directory: `dist`
+- Environment variable: `VITE_API_BASE_URL=https://urvashi-portfolio-api.onrender.com`
+  (Production and Preview)
+
+Deploy with `vercel --prod`, or connect the GitHub repository in
+**Vercel → Project → Settings → Git** to deploy automatically on every push.
+The committed `vercel.json` keeps the Vite build settings consistent.
+
+### Render (API)
+
+The `urvashi-portfolio-api` Web Service uses:
+
+- Build: `npm ci --include=dev && npm run build`
+- Start: `npm start`
+- Health check: `/api/health`
+
+Set `BREVO_API_KEY`, `CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL`,
+`CONTACT_FROM_NAME` and `ALLOWED_ORIGINS` in the Render dashboard.
+`ALLOWED_ORIGINS` must include the Vercel production URL and the preview
+wildcard, for example:
+
+```text
+https://urvashi-portfolio-tawny.vercel.app,https://urvashi-portfolio-*.vercel.app
+```
+
+`render.yaml` describes the API service; Render auto-deploys it from `main`.
+
+### Other hosts
+
+The wrappers in `api/` (Vercel serverless) and `netlify/` are kept for
+single-host deployments, but the live setup above uses Vercel for the frontend
+and Render for the API.
+
+Update the canonical URL, Open Graph URLs, `robots.txt` and `sitemap.xml` if
+the production domain changes.
 
 ## Known follow-ups
 
-- `robots.txt` currently allows indexing; add a `sitemap.xml` after the final
-  domain is chosen.
 - `og-image.jpg` is portrait-shaped; a 1200×630 landscape image renders better
   in social previews.
-- Projects have no screenshots/thumbnails yet; adding them would strengthen
-  the projects section.
+- The Vercel project needs a GitHub login connection before it can auto-deploy
+  from the repository; until then use `vercel --prod`.
