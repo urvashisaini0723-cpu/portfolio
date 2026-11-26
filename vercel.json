@@ -3,5 +3,10 @@
   "framework": "vite",
   "installCommand": "npm ci",
   "buildCommand": "npm run build",
-  "outputDirectory": "dist"
+  "outputDirectory": "dist",
+  "rewrites": [
+    { "source": "/api/health", "destination": "https://urvashi-portfolio-api.onrender.com/api/health" },
+    { "source": "/health", "destination": "https://urvashi-portfolio-api.onrender.com/api/health" },
+    { "source": "/ping", "destination": "https://urvashi-portfolio-api.onrender.com/api/health" }
+  ]
 }
