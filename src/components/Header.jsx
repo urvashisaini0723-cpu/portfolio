@@ -53,12 +53,26 @@ export default function Header() {
         </ul>
 
         <button
-          aria-label="Menu"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen(!menuOpen)}
-          className="rounded-full border border-(--color-canvas)/40 px-4 py-1.5 font-body text-sm text-(--color-canvas) md:hidden"
+          className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-full border border-(--color-canvas)/40 md:hidden"
         >
-          {menuOpen ? "Close" : "Menu"}
+          <span
+            className={`h-0.5 w-5 bg-(--color-canvas) transition-transform duration-300 ${
+              menuOpen ? "translate-y-2 rotate-45" : ""
+            }`}
+          />
+          <span
+            className={`h-0.5 w-5 bg-(--color-canvas) transition-opacity duration-300 ${
+              menuOpen ? "opacity-0" : ""
+            }`}
+          />
+          <span
+            className={`h-0.5 w-5 bg-(--color-canvas) transition-transform duration-300 ${
+              menuOpen ? "-translate-y-2 -rotate-45" : ""
+            }`}
+          />
         </button>
       </nav>
 
