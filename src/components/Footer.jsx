@@ -13,8 +13,8 @@ export default function Footer() {
             urvashi<span className="text-(--color-accent)">*</span>
           </a>
           <p className="mt-4 max-w-xs font-body text-sm text-(--color-canvas)/70">
-            Aspiring software developer from Kaithal, Haryana — C, C++ and web
-            projects.
+            AI &amp; Digital Marketing Learner from Kaithal, Haryana — C, C++ and
+            web projects.
           </p>
         </div>
 
