@@ -117,7 +117,7 @@ export default function Contact() {
             <span className="text-(--color-accent-soft)">contact</span>
           </h2>
           <p className="mx-auto mt-4 max-w-lg font-body text-(--color-canvas)/75">
-            Open to entry-level software development roles, collaborations and
+            Open to AI and digital marketing opportunities, collaborations and
             feedback on my work.
           </p>
         </div>
