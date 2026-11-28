@@ -1,39 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://urvashi-portfolio-tawny.vercel.app/</loc>
-    <lastmod>2026-11-25</lastmod>
+    <lastmod>2026-11-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://urvashi-portfolio-tawny.vercel.app/#about</loc>
-    <lastmod>2026-11-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://urvashi-portfolio-tawny.vercel.app/#skills</loc>
-    <lastmod>2026-11-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://urvashi-portfolio-tawny.vercel.app/#learning</loc>
-    <lastmod>2026-11-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://urvashi-portfolio-tawny.vercel.app/#projects</loc>
-    <lastmod>2026-11-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://urvashi-portfolio-tawny.vercel.app/#contact</loc>
-    <lastmod>2026-11-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://urvashi-portfolio-tawny.vercel.app/img/urvashi.webp</image:loc>
+      <image:title>Urvashi Saini — AI &amp; Digital Marketing Learner</image:title>
+      <image:caption>Portrait of Urvashi Saini, BCA graduate and MCA student from Kaithal, Haryana.</image:caption>
+    </image:image>
   </url>
 </urlset>

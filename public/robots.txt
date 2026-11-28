@@ -1,5 +1,16 @@
+# Robots.txt for Urvashi Saini Portfolio
 User-agent: *
 Allow: /
-Disallow: /admin
+
+# Do not crawl private / internal paths
+Disallow: /admin/
+Disallow: /server/
+Disallow: /private/
+
+# Allow static assets to be crawled
+Allow: /img/
+Allow: /icons/
+Allow: /favicon.svg
+Allow: /manifest.webmanifest
 
 Sitemap: https://urvashi-portfolio-tawny.vercel.app/sitemap.xml
